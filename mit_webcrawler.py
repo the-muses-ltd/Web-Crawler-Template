@@ -7,10 +7,11 @@ from bs4 import BeautifulSoup
 def courses_spider(max_pages):
     page = 1
     while page <= max_pages:
-        url = 'https://ocw.mit.edu/courses/'
+        url = 'insert website url here'
         source_code = requests.get(url)
         plain_text = source_code.text
         soup = BeautifulSoup(plain_text, 'html.parser')
+        # All code from this point on needs to be adapted to the specific structure of the website that the user is attempting to mine data from.
         for link in soup.findAll('h4', {'class': 'course_title'}):
             link_title = link.find('a', {'rel': 'coursePreview'})
             href = 'https://ocw.mit.edu' + link_title.get('href')
@@ -25,12 +26,9 @@ def get_single_course_data(item_url):
     source_code = requests.get(item_url)
     plain_text = source_code.text
     soup = BeautifulSoup(plain_text, 'html.parser')
-    # for item_description in soup.findAll('p'):
     for item_description in soup.findAll('div', {'id': 'description'}):
         description = item_description.findAll('p')
         print(description[0].string)
-#         need to print each p and add them together to get a full description.
-#         get tag from url (has category)
 
 
 courses_spider(1)
