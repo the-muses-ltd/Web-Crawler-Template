@@ -1,4 +1,4 @@
-# Basic web crawlers designed to mine data from MIT Opencourseware. This can be adapted to be used on any large repository/catalogue of data.
+# Basic web crawler designed to mine data from MIT Opencourseware. This can be adapted to be used on any large repository/catalogue of data.
 # This tool is intended to make the process of mining data more efficient by automating the process.
 
 import requests
